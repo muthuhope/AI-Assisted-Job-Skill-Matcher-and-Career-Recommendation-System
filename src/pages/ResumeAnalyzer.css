@@ -1,0 +1,169 @@
+.analyzer-page {
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.analyzer-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.analyzer-header h1 {
+  font-size: 2.4rem;
+  color: #0d47a1;
+  margin-bottom: 10px;
+}
+
+.analyzer-header p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.analyzer-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-group input[type="file"],
+.form-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.analyze-btn {
+  background: linear-gradient(90deg, #42a5f5, #478ed1);
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.analyze-btn:hover {
+  background: linear-gradient(90deg, #1e88e5, #1565c0);
+}
+
+.loader-icon {
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.result-section {
+  margin-top: 40px;
+  background: #f9fafc;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.result-section h2 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.result-box {
+  line-height: 1.7;
+}
+
+.result-box h3 {
+  color: #1565c0;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.result-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.result-box li {
+  background: #e3f2fd;
+  margin-bottom: 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #0d47a1;
+  font-weight: 500;
+}
+
+.all-skills {
+  background: #c8e6c9;
+  padding: 10px;
+  border-radius: 8px;
+  color: #1b5e20;
+  font-weight: 600;
+  text-align: center;
+}
+/* ✅ Mobile View */
+@media (max-width: 768px) {
+  .analyzer-card,
+  .result-section {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .analyze-btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .analyzer-page {
+    padding: 80px 10px;
+  }
+
+  .analyzer-card {
+    padding: 12px;
+  }
+
+  .form-group input,
+  select {
+    font-size: 0.9rem;
+  }
+
+  .analyze-btn {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+}
