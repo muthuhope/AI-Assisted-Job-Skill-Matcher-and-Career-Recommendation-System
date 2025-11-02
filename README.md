@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# Job Skill Matcher
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The **Job Skill Matcher** is a full-stack web application that helps users upload their resumes and automatically matches them with job postings based on their skills.  
+It uses **Spring Boot (Java)** for the backend and **React.js** for the frontend.  
+The system parses resumes (PDF format) using **Apache PDFBox**, extracts key skills, and compares them with job requirements stored in a database.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ⚙️ Backend Flow (Spring Boot)
 
-### `npm start`
+1. **User Uploads Resume**
+   - The frontend sends a PDF file to the backend via a REST API (`/api/resume/upload`).
+   
+2. **Resume Parsing**
+   - The backend uses **Apache PDFBox** to read and extract text from the uploaded PDF resume.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. **Skill Extraction**
+   - Extracted text is processed to identify relevant skills using a predefined keyword list or pattern matching.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4. **Job Matching**
+   - Extracted skills are compared with job listings stored in the **MySQL database**.
+   - The system calculates match scores and returns the most relevant jobs.
 
-### `npm test`
+5. **Response to Frontend**
+   - The matched job list (with titles, company names, and skill matches) is sent back to the frontend for display.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Frontend Flow (React.js)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Login/Register**
+   - User logs in using credentials verified through the backend authentication API.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Resume Upload**
+   - User uploads a resume through an interactive UI.
+   - The resume is sent as a `multipart/form-data` request to the backend.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Job Display**
+   - Matched jobs are dynamically displayed with details like position, company, and skill match percentage.
 
-### `npm run eject`
+4. **Error Handling**
+   - Alerts are shown for invalid uploads, server errors, or missing resumes.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🔹 Backend
+- Java 17  
+- Spring Boot 3.x  
+- Maven  
+- MySQL Database  
+- Apache PDFBox  
+- Spring Data JPA  
+- RESTful API Architecture  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🔹 Frontend
+- React.js  
+- Axios (API calls)  
+- Bootstrap / CSS for styling  
+- React Router DOM  
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Features
+- Resume text extraction using **Apache PDFBox**  
+- Skill-based job matching algorithm  
+- User authentication and session handling  
+- Real-time API communication between frontend and backend  
+- Error-safe and scalable architecture  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## How to Run the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Backend (Spring Boot)
+```bash
+cd backend
+mvn clean install
+mvn spring-boot:run
 
-### Analyzing the Bundle Size
+**Front End (React.js)**
+cd frontend
+npm install
+npm run dev
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Folder Structure**
+job-skill-matcher/
+│
+├── backend/
+│   ├── src/main/java/com/jobskillmatcher/backend/
+│   │   ├── controller/
+│   │   ├── service/
+│   │   ├── entity/
+│   │   └── repository/
+│   └── resources/
+│       └── application.properties
+│
+└── frontend/
+    ├── src/
+    ├── public/
+    └── package.json
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Author**
+Muthukumaran M
+MCA Graduate | Full Stack Developer
